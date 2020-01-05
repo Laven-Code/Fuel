@@ -1,0 +1,37 @@
+echo "# Fuel" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Laven-Code/Fuel.git
+git push -u origin master
+
+import java.util.Scanner;
+import java.io.*;
+
+public class Fuel {
+	
+	private static Scanner modules;
+	private static FileWriter output;
+
+	public static void main (String[] args) throws IOException{
+		
+		int sum = 0;
+		
+		File input = new File("InputData.txt");
+		modules = new Scanner(input);
+		
+		output = new FileWriter("answer.txt");
+		
+		while(modules.hasNext()){
+			int mass = modules.nextInt();
+			double fuel = (mass / 3);
+			fuel = (Math.round(fuel))-2;
+			sum += fuel;
+		};
+		
+		System.out.println("The total fuel required is " + sum);
+		output.write(sum);
+	
+	};
+	
+};
